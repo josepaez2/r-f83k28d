@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component {
+class App extends React.Component {
+  state = {
+    valor: 1,
+    nombre: "",
+    lastName: ""
+  }
+  handler = ({target}) => {
+    const {name, value} = target
+    // this.state.name = event.target.value
+    this.setState({[name]: value})
+  }
+  // saveUser = (event) => {
+
+  // }
   render() {
+    console.log("Cambié")
     return (
       <div>
-        <span className="value">0</span>
-        <button id="inc">Incrementa</button>
+        <h1>Repetidor</h1>
+        <input name="nombre" type="text" onChange={this.handler}></input>
+        <p>{this.state.nombre}</p>
+        {/* <input name="lastName" type="text" onChange={this.handler.lastName}></input> */}
       </div>
-    );
+
+    )
   }
+
 }
 
 export default App;
